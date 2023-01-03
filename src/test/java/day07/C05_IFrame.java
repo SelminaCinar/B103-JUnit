@@ -28,12 +28,16 @@ public class C05_IFrame extends TestBase {
 //        Alternatif olarak altdaki secenekler de kullanilabilir
 //        Assert.assertTrue(expectedText1.contains(icMetin));
 //        Assert.assertTrue(driver.findElement(By.xpath("//*[.='Applications lists']")).isDisplayed());
+
 //        Son olarak footer daki ‘Povered By’ yazisini varligini test edilip
 //        Ana sayfadaki Povered By yazinisi test etmek istiyorum Ama driver hala iframein icinde
 //        Iframein disina cikmak icin driver.switchTo().defaultContent/parentFrame
+
         driver.switchTo().defaultContent();
         String footerText = driver.findElement(By.xpath("(//footer[@class='blog-footer'][1])//p")).getText();
         System.out.println(footerText);
         Assert.assertTrue(footerText.contains("Povered By"));
+
+
     }
 }
