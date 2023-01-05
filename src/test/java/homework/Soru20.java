@@ -39,16 +39,19 @@ public class Soru20 extends TestBase {
        // Thread.sleep(2000);
 
 //    7. Verify all the products related to search are visible
-      List<WebElement> list = driver.findElements(By.className("product-overlay"));
-        for (WebElement element : list){
+        List<WebElement> urunResimlerininVarligi = driver.findElements(By.xpath("//*[@alt='ecommerce website products']"));
+
+        for (WebElement element : urunResimlerininVarligi){
             element.isDisplayed();
-            System.out.println(element);
         }
 
 //    8. Add those products to cart
-    List<WebElement> list1 = driver.findElements(By.className("product-overlay"));
-        for (WebElement element : list){
-            element.click();
+        List<WebElement> tumUrunler = driver.findElements(By.xpath("//*[@class='productinfo text-center']//*[@class='btn btn-default add-to-cart']"));
+        WebElement kabulTusu = driver.findElement(By.xpath("//*[@class='btn btn-success close-modal btn-block']"));
+
+        for (int i = 0; i <tumUrunler.size() ; i++) {
+            tumUrunler.get(i).click();
+            kabulTusu.click();
         }
 
 
